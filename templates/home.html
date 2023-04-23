@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<h1 class="m-3">Pets</h1>
+<div class="row m-3">
+  {% for pet in pets %}
+  <div class="col-md-2 p-3 l-5">
+    <img class="img-thumbnail" src="{{pet.pet_image()}}" />
+    <a href="/pet/{{pet.id}}/edit" class="text-primary">{{pet.name}}</a>
+    {% if pet.avilable %} <b> is avilable</b> {% endif %}
+  </div>
+</div>
+{% endfor %}
+<div><a class="btn bg-info text-white m-3" href="/add">Add a Pet</a></div>
+
+{% endblock %}
